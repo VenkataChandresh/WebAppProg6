@@ -12,6 +12,76 @@
 
   <h1>Actors by Venkata Chandresh Adapa</h1>
 
+  <form>
+
+    <label for="secretActor">Peter Pan</label>
+    <input
+      type="password"
+      id="secretActor"
+      value="Robin Williams"
+    >
+
+    <br><br>
+
+    <label for="actorGuess">Who is the actor</label>
+    <input
+      type="text"
+      id="actorGuess"
+    >
+
+    <br><br>
+
+    <button
+      type="button"
+      onclick="checkActor()">
+      Check the guess
+    </button>
+
+  </form>
+
+  <p id="result">
+    Correct: 0 | Incorrect: 0
+  </p>
+
+
+  <script>
+
+    let correct = 0;
+    let notCorrect = 0;
+
+
+    function checkActor() {
+
+      let secretActor =
+        document.getElementById("secretActor").value;
+
+      let actorGuess =
+        document.getElementById("actorGuess").value;
+
+
+      if (secretActor === actorGuess) {
+
+        correct++;
+
+        alert("That's right");
+
+      } else {
+
+        notCorrect++;
+
+        alert("Better luck next time");
+
+      }
+
+
+      document.getElementById("result").innerHTML =
+        "Correct: " + correct +
+        " | Incorrect: " + notCorrect;
+
+    }
+
+  </script>
+
 </body>
 
 </html>
