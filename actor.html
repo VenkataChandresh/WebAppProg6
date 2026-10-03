@@ -43,11 +43,22 @@
     Correct: 0 | Incorrect: 0
   </p>
 
+  <div>
+  <img
+    id="foodPic"
+    src="alfredo.jpg"
+    width="150"
+    height="150"
+    onclick="updatePic()"
+    alt="Food image"
+  >
+</div>
 
   <script>
 
     let correct = 0;
     let notCorrect = 0;
+    let usePic = 1;
 
 
     function checkActor() {
@@ -78,6 +89,27 @@
         "Correct: " + correct +
         " | Incorrect: " + notCorrect;
 
+    }
+
+    function updatePic() {
+      let image = document.getElementById("foodPic");
+
+      switch (usePic) {
+        case 1:
+          image.src = "pizza.jpeg";
+          usePic = 2;
+          break;
+
+        case 2:
+          image.src = "dumplings.webp";
+          usePic = 3;
+          break;
+
+        case 3:
+          image.src = "alfredo.jpg";
+          usePic = 1;
+          break;
+      }
     }
 
   </script>
