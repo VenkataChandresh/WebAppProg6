@@ -30,6 +30,24 @@
 
     <p id="result"></p>
 
+    <h3>Choose a calculation</h3>
+
+    <form>
+        <input type="radio" id="product" name="operation" value="mul" onclick="chooseOp()">
+        <label for="product">Product</label>
+        <br>
+
+        <input type="radio" id="sum" name="operation" value="add" onclick="chooseOp()">
+        <label for="sum">Sum</label>
+        <br>
+
+        <input type="radio" id="divide" name="operation" value="div" onclick="chooseOp()">
+        <label for="divide">Divide</label>
+    </form>
+
+    <p id="operationResult"></p>
+
+
     <script>
         function doDiscount() {
             let number = Number(document.getElementById("numberItems").value);
@@ -56,6 +74,28 @@
 
             document.getElementById("result").innerHTML = "Costs are: " + costs;
         }
+
+        function chooseOp() {
+            let count = Number(document.getElementById("numberItems").value);
+            let discountAt = Number(document.getElementById("numberForDiscount").value);
+
+            let result = "";
+
+            if (document.getElementById("product").checked) {
+                result = count + " times " + discountAt + " is " + (count * discountAt);
+            } else if (document.getElementById("sum").checked) {
+                result = count + " plus " + discountAt + " is " + (count + discountAt);
+            } else if (document.getElementById("divide").checked) {
+                if (discountAt === 0) {
+                    result = "Cannot divide by zero";
+                } else {
+                    result = count + " divided by " + discountAt + " is " + (count / discountAt);
+                }
+            }
+
+            document.getElementById("operationResult").innerHTML = result;
+        }
+
     </script>
 </body>
 </html>
