@@ -29,6 +29,23 @@
 
     <p id="mealResult"></p>
 
+<h3>Update your meal plan</h3>
+
+    <form>
+        <label for="cuisine">Enter cuisine type</label>
+        <input type="text" id="cuisine" value="Italian">
+        <br><br>
+
+        <label for="beverage">Enter beverage choice</label>
+        <input type="text" id="beverage" value="water">
+        <br><br>
+
+        <button type="button" onclick="updateMeal()">
+            Update the meal plan
+        </button>
+    </form>
+
+
     <script>
         let my_meal_plan = {};
 
@@ -47,6 +64,18 @@
             document.getElementById("mealResult").innerHTML =
                 JSON.stringify(my_meal_plan);
         }
+
+        function updateMeal() {
+            let cuisine = document.getElementById("cuisine").value;
+            let beverage = document.getElementById("beverage").value;
+
+            my_meal_plan["cuisine"] = cuisine;
+            my_meal_plan["beverage"] = beverage;
+
+            document.getElementById("mealResult").innerHTML =
+                JSON.stringify(my_meal_plan);
+        }
+
     </script>
 
 </body>
